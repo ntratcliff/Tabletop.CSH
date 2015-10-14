@@ -27,6 +27,10 @@ html{
 	text-align:center;
 }
 
+#time{
+	color:#f00;
+}
+
 a:visited{
 	color:#000;
 }
