@@ -5,6 +5,7 @@
 
 html{
 	font-family:Arial, sans-serif;
+	min-width:330px;
 }
 
 #page{
@@ -52,7 +53,8 @@ a:hover{
 
 #content{
 	width:66%;
-	float: left;
+	/*float: left;*/
+	display:inline-block;
 	padding-right: 3px;
 	padding-left: 3px;
 	border: 1px solid #ddd;
@@ -63,9 +65,21 @@ a:hover{
 
 #sidebar{
 	width: 30%;
-	float: right;
+	display:inline-block;
+	vertical-align:top;
 	padding-top: 3px;
 	padding-right: 6px;
+}
+
+
+#footer{
+	font-size: 0.6em;
+	text-align:center;
+	color: #ddd;
+	border: 1px solid #ddd;
+	border-left: 0px;
+	border-right: 0px;
+	width:100%;
 }
 
 h1{
