@@ -18,6 +18,15 @@ html{
 	font-family: Eight Bit Wonder, Arial, sans-serif;
 }
 
+#header a{
+	color:#000;
+	text-decoration:none;
+}
+
+#header a:hover{
+	color:#333;
+}
+
 #navbar{
 	border: 1px solid #000;
 	border-left: 0;
