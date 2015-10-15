@@ -102,10 +102,21 @@ p{
 	margin-bottom: 0px;
 }
 
+#sidebarcontent{
+	margin: auto auto auto 6%;
+}
+
 hr{
 	border: 0;
 	height: 1px;
 	background: #000;
+}
+
+#sidebar hr{
+	border: 0;
+	height: 1px;
+	background: #ddd;
+	width:100%;
 }
 
 @media only screen and (max-width: 590px) {
