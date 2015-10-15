@@ -119,6 +119,19 @@ hr{
 	width:100%;
 }
 
+#sidebar img{
+	width: 40%;
+	display: inline-block;
+	vertical-align:center;
+}
+
+#imgwrapper{
+	margin:0 auto;
+	text-align:center;
+	display:inline-block;
+	width: 100%;
+}
+
 @media only screen and (max-width: 590px) {
 	h1{
 		font-size: 1.7em;
