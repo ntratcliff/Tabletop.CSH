@@ -44,6 +44,14 @@ a:hover{
 	text-decoration:none;
 }
 
+#footer a{
+	color:inherit;
+}
+
+#footer a:visited{
+	color:inherit;
+}
+
 #navbar a{
 	color:#000;
 	font-family: Arial Black, Gadget, sans-serif;
