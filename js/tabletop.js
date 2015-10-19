@@ -1,6 +1,6 @@
 $(document).ready(function(){
     // Navigation Controller
-    $('a.nav-button').click(function(e){
+    $('.navbar-nav a').click(function(e){
         // Grab the page to show from the data attribute on the link
         var pageToNavigate = $(this).data('page');
 
