@@ -36,9 +36,9 @@
         </div>
         <div id="navbar" class="navbar-collapse collapse">
             <ul class="nav navbar-nav">
-                <li class="active"><a href="#"><span class="glyphicon glyphicon-home"></span> Home</a></li>
-                <li><a href="#"><span class="glyphicon glyphicon-king"></span> Games</a></li>
-                <li><a href="#"><span class="glyphicon glyphicon-mtg"></span> Magic Tournament</a></li>
+                <li class="active"><a href="#" data-page="home" class="nav-button"><span class="glyphicon glyphicon-home"></span> Home</a></li>
+                <li><a href="#" data-page="games" class="nav-button"><span class="glyphicon glyphicon-king"></span> Games</a></li>
+                <li><a href="#" data-page="magic" class="nav-button"><span class="glyphicon glyphicon-mtg"></span> Magic Tournament</a></li>
             </ul>
             <ul class="nav navbar-nav navbar-right">
                 <li><a href="https://donate.charitywater.org/tabletopcsh/csh-freshmen-charity"><span class="glyphicon glyphicon-globe"></span> Donate Now &rarr;</a></li>
@@ -55,7 +55,7 @@
     </div>
     <div class="row">
         <div class="col-md-9">
-            <div class="panel panel-default" id="page-home">
+            <div class="panel panel-default page-active" id="page-home">
                 <div class="panel-heading">
                     <h3 class="panel-title">About Tabletop.CSH</h3>
                 </div>
@@ -159,6 +159,6 @@
 
 <script src="js/jquery-1.11.3.min.js"></script>
 <script src="js/bootstrap.min.js"></script>
-
+<script src="js/tabletop.js"></script>
 </body>
 </html>
