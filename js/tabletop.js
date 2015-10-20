@@ -86,16 +86,16 @@ $(document).ready(function () {
                     $("#magicFormAlert").addClass("alert-success").html("<strong>Thanks!</strong> Your registration has been received. See you there!").show();
 
                     // After 5 seconds...
-                    setTimeout(function(){
+                    setTimeout(function () {
                         // Dismiss the alert
                         closeAlert("#magicFormAlert");
 
-                        // Hide the modal
-                        $("#magicModal").modal('hide');
-
-                        // Show the form and footer in the modal again
-                        $("#magicFormContainer").show();
-                        $("#magicFormFooter").show();
+                        // Hide the modal and wait until the modal is hidden...
+                        $("#magicModal").modal('hide').on('hidden.bs.modal', function (e) {
+                            // ... then show the form and footer in the modal again
+                            $("#magicFormContainer").show();
+                            $("#magicFormFooter").show();
+                        });
                     }, 5000);
                 },
                 error: function (jqXHR, textStatus, errorThrown) {
@@ -103,7 +103,7 @@ $(document).ready(function () {
                     $("#magicFormAlert").addClass("alert-danger").html("<strong>Whoops!</strong> Something went wrong. Please try submitting again in a few minutes.").show();
 
                     // Dismiss the alert after 5 seconds
-                    setTimeout(function(){
+                    setTimeout(function () {
                         closeAlert("#magicFormAlert");
                     }, 5000);
 
