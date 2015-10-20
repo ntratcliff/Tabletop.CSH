@@ -64,7 +64,7 @@ w
 
             // Fire off the request to /form.php
             request = $.ajax({
-                url: "https://script.google.com/macros/s/AKfycbwiXl45kuksLcDVdtxJkJVT0RicFZIscllYFOWbW47iAu_rLuU/exec",
+                url: "https://script.google.com/macros/s/AKfycbwiXl45kuksLcDVdtxJkJVT0RicFZIscllYFOWbW47iAu_rLuU/exec&callback=?",
                 type: "post",
                 data: serializedData
             });
