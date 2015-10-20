@@ -85,10 +85,17 @@ $(document).ready(function () {
                     // Show success alert
                     $("#magicFormAlert").addClass("alert-success").html("<strong>Thanks!</strong> Your registration has been received. See you there!").show();
 
-                    // Dismiss the alert and modal after 5 seconds
+                    // After 5 seconds...
                     setTimeout(function(){
+                        // Dismiss the alert
                         closeAlert("#magicFormAlert");
+
+                        // Hide the modal
                         $("#magicModal").modal('hide');
+
+                        // Show the form and footer in the modal again
+                        $("#magicFormContainer").show();
+                        $("#magicFormFooter").show();
                     }, 5000);
                 },
                 error: function (jqXHR, textStatus, errorThrown) {
