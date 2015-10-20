@@ -44,11 +44,8 @@ $(document).ready(function () {
 
     // Bind to the submit event of our form
     $("#magicRegSubmit").click(function (event) {
-        // Setup some local variables
-        var form = $("#magicRegForm");
-
         // Validate the form first
-        if (!form[0].checkValidity()) {
+        if (!$("#magicRegForm")[0].checkValidity()) {
             // Do a hacky workaround to get the browser to display the native validation messages
             $('<input type="submit">').hide().appendTo("#magicRegForm").click().remove();
         } else {
@@ -58,7 +55,7 @@ $(document).ready(function () {
             }
 
             // Select and cache all the fields
-            var inputs = form.find("input");
+            var inputs = $(".modal-content").find("input, button");
 
             // Disable the inputs for the duration of the Ajax request.
             inputs.prop("disabled", true);
