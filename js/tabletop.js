@@ -42,22 +42,25 @@ $(document).ready(function () {
     // Bind to the submit event of our form
     $("#magicRegSubmit").click(function (event) {
         // Setup some local variables
-        var $form = $("#magicRegForm");
+        var form = $("#magicRegForm");
 
         // Validate the form first
-        if ($form[0].checkValidity()) {
+        if (!form[0].checkValidity()) {
+            // Do a hacky workaround to get the browser to display the native validation messages
+            $('<input type="submit">').hide().appendTo("#magicRegForm").click().remove();
+        } else {
             // Abort any pending request
             if (request) {
                 request.abort();
             }
 
-            // Let's select and cache all the fields
-            var inputs = $form.find("input");
+            // Select and cache all the fields
+            var inputs = form.find("input");
 
-            // Let's disable the inputs for the duration of the Ajax request.
+            // Disable the inputs for the duration of the Ajax request.
             inputs.prop("disabled", true);
 
-            // Fire off the request to /form.php
+            // Fire off the request to ajax.php
             request = $.ajax({
                 url: "ajax.php",
                 type: "post",
@@ -65,50 +68,34 @@ $(document).ready(function () {
                     'entry.1829442147': $("input#name").val(),
                     'entry.253069850': $("input#email").val(),
                     'entry.1939605299': $("input#phone").val()
+                },
+                success: function (data) {
+                    // Clear the inputs
+                    $("input#name").val('');
+                    $("input#email").val('');
+                    $("input#phone").val('');
+
+                    // Show success alert
+                    $("#magicFormAlert").addClass("alert-success").html("<strong>Thanks!</strong> Your registration has been received. See you there!").show();
+
+                    // Close the alert in 5 seconds
+                    setTimeout(function(){ closeAlert("#magicFormAlert"); }, 5000);
+                },
+                error: function (jqXHR, textStatus, errorThrown) {
+                    // Show failure alert
+                    $("#magicFormAlert").addClass("alert-danger").html("<strong>Whoops!</strong> Something went wrong. Please try submitting again in a few minutes.").show();
+
+                    // Close the alert in 5 seconds
+                    setTimeout(function(){ closeAlert("#magicFormAlert"); }, 5000);
+
+                    // Log error to console
+                    console.log("An error occurred while trying to submit the form: " + textStatus, errorThrown);
+                },
+                complete: function () {
+                    // Re-enable the inputs
+                    inputs.prop("disabled", false);
                 }
             });
-
-            // Callback handler that will be called on success
-            request.success(function () {
-                // Clear the inputs
-                $("input#name").val('');
-                $("input#email").val('');
-                $("input#phone").val('');
-
-                // Show success alert
-                $("#magicFormAlert")
-                    .addClass("alert-success")
-                    .html("<strong>Thanks!</strong> Your registration has been received. See you there!")
-                    .show();
-
-                // Close the alert in 5 seconds
-                setTimeout(closeAlert("#magicFormAlert"), 5000);
-            });
-
-            // Callback handler that will be called on failure
-            request.error(function (jqXHR, textStatus, errorThrown) {
-                // Show failure alert
-                $("#magicFormAlert")
-                    .addClass("alert-danger")
-                    .html("<strong>Whoops!</strong> Something went wrong. Please try submitting again in a few minutes.")
-                    .show();
-
-                // Close the alert in 5 seconds
-                setTimeout(closeAlert("#magicFormAlert"), 5000);
-
-                // Log error to console
-                console.log("An error occurred while trying to submit the form: " + textStatus, errorThrown);
-            });
-
-            // Callback handler that will be called regardless
-            // if the request failed or succeeded
-            request.always(function () {
-                // Reenable the inputs
-                inputs.prop("disabled", false);
-            });
-        } else {
-            // Do a hacky workaround to get the browser to display the native validation messages
-            $('<input type="submit">').hide().appendTo("#magicRegForm").click().remove();
         }
     });
 });
