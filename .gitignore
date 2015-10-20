@@ -1,1 +1,2 @@
-.idea
+# Ignore WebStorm profile
+.idea/

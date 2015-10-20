@@ -2,12 +2,12 @@ $(document).ready(function () {
 
     /*
      Navigation Controller
-      */
+     */
 
     $('.navbar-nav a').click(function (e) {
         // Grab the page to show from the data attribute on the link
         var pageToNavigate = $(this).data('page');
-w
+
         // Make the nav button active
         $('ul.navbar-nav > li.active').removeClass('active');
         $(this).parent().addClass('active');
@@ -24,14 +24,14 @@ w
     });
 
     /*
-    Magic Draft Registration Controller
+     Magic Draft Registration Controller
      */
 
     // Variable to hold request
     var request;
 
     // Function to close the alert
-    function closeAlert(selector){
+    function closeAlert(selector) {
         $(selector)
             .hide()
             .html("")
@@ -45,32 +45,36 @@ w
         var $form = $("#magicRegForm");
 
         // Validate the form first
-        if ($form[0].checkValidity()){
+        if ($form[0].checkValidity()) {
             // Abort any pending request
             if (request) {
                 request.abort();
             }
 
             // Let's select and cache all the fields
-            var $inputs = $form.find("input, select, button, textarea");
-
-            // Serialize the data in the form
-            var serializedData = $form.serialize();
+            var inputs = $form.find("input");
 
             // Let's disable the inputs for the duration of the Ajax request.
-            // Note: we disable elements AFTER the form data has been serialized.
-            // Disabled form elements will not be serialized.
-            $inputs.prop("disabled", true);
+            inputs.prop("disabled", true);
 
             // Fire off the request to /form.php
             request = $.ajax({
-                url: "https://script.google.com/macros/s/AKfycbwiXl45kuksLcDVdtxJkJVT0RicFZIscllYFOWbW47iAu_rLuU/exec&callback=?",
+                url: "https://docs.google.com/forms/d/1K0ohoAFxozQpW7niuqLWCPOvkTW53unOeVfK_7c8Zps/formResponse",
                 type: "post",
-                data: serializedData
+                data: {
+                    'entry.1829442147': $("input#name").val(),
+                    'entry.253069850': $("input#email").val(),
+                    'entry.1939605299': $("input#phone").val()
+                }
             });
 
             // Callback handler that will be called on success
-            request.done(function (response, textStatus, jqXHR) {
+            request.success(function () {
+                // Clear the inputs
+                $("input#name").val('');
+                $("input#email").val('');
+                $("input#phone").val('');
+
                 // Show success alert
                 $("#magicFormAlert")
                     .addClass("alert-success")
@@ -82,7 +86,7 @@ w
             });
 
             // Callback handler that will be called on failure
-            request.fail(function (jqXHR, textStatus, errorThrown) {
+            request.error(function (jqXHR, textStatus, errorThrown) {
                 // Show failure alert
                 $("#magicFormAlert")
                     .addClass("alert-danger")
@@ -100,7 +104,7 @@ w
             // if the request failed or succeeded
             request.always(function () {
                 // Reenable the inputs
-                $inputs.prop("disabled", false);
+                inputs.prop("disabled", false);
             });
         } else {
             // Do a hacky workaround to get the browser to display the native validation messages
