@@ -4,7 +4,7 @@ $(document).ready(function () {
      Navigation Controller
      */
 
-    $('.navbar-nav a').click(function (e) {
+    $('.navbar-left a').click(function (e) {
         // Grab the page to show from the data attribute on the link
         var pageToNavigate = $(this).data('page');
 

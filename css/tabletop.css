@@ -1,3 +1,7 @@
+/*
+ Document Styles
+ */
+
 html {
     position: relative;
     min-height: 100%;
@@ -7,6 +11,10 @@ body {
     padding-top: 70px;
     margin-bottom: 60px;
 }
+
+/*
+ Header Styles
+ */
 
 .logo {
     width: 48px;
@@ -27,6 +35,10 @@ body {
     width: 16px;
     height: 16px;
 }
+
+/*
+ Content Styles
+ */
 
 .banner-image {
     width: 100%;
@@ -51,6 +63,10 @@ body {
 #magicFormAlert {
     display: none;
 }
+
+/*
+ Footer Styles
+ */
 
 .footer {
     position: absolute;
