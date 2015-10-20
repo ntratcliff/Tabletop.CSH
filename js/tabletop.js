@@ -84,12 +84,12 @@ $(document).ready(function () {
 
                     // After 5 seconds...
                     setTimeout(function () {
-                        // Dismiss the alert
-                        closeAlert("#magicFormAlert");
-
-                        // Hide the modal and wait until the modal is hidden...
+                        // Hide the modal and wait until the modal is hidden, then...
                         $("#magicModal").modal('hide').on('hidden.bs.modal', function (e) {
-                            // ... then show the form and footer in the modal again
+                            // Dismiss the alert
+                            closeAlert("#magicFormAlert");
+
+                            // Show the form and footer in the modal again
                             $("#magicFormContainer").show();
                             $("#magicFormFooter").show();
                         });
