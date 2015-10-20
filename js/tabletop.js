@@ -59,7 +59,7 @@ $(document).ready(function () {
 
             // Fire off the request to /form.php
             request = $.ajax({
-                url: "https://docs.google.com/forms/d/1K0ohoAFxozQpW7niuqLWCPOvkTW53unOeVfK_7c8Zps/formResponse",
+                url: "ajax.php",
                 type: "post",
                 data: {
                     'entry.1829442147': $("input#name").val(),
