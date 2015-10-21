@@ -40,9 +40,9 @@
                 <li><a href="#" data-page="games"><span class="glyphicon glyphicon-king"></span> Games</a></li>
                 <li><a href="#" data-page="magic"><span class="glyphicon glyphicon-mtg"></span> Magic Tournament</a></li>
             </ul>
-            <ul class="nav navbar-nav navbar-right">
-                <li><a href="https://donate.charitywater.org/tabletopcsh/csh-freshmen-charity"><span class="glyphicon glyphicon-globe"></span> Donate Now &rarr;</a></li>
-            </ul>
+            <div class="nav navbar-nav navbar-right donate-btn-container">
+                <a class="btn btn-md btn-default donate-btn" role="button" href="https://donate.charitywater.org/tabletopcsh/csh-freshmen-charity"><span class="glyphicon glyphicon-globe"></span> Donate Now &rarr;</a>
+            </div>
         </div><!--/.nav-collapse -->
     </div>
 </nav>
@@ -63,8 +63,8 @@
                     <p>This year CSH is hosting their annual charity event supporting Charity: Water! We will be providing board games, a Magic Draft Tournament (with prizes!), mahjong, dominos, a 50/50 raffle (buy a ticket and potentially win half the prize!), drinks, snacks and more!</p>
                     <p>Entry is free, but donations are encouraged, and there will be a $15 registration fee for the Magic draft.</p>
                     <p>
-                        <a class="btn btn-lg btn-info action-button" href="https://www.facebook.com/events/1637418499868514/" role="button"><span class="glyphicon glyphicon-share"></span> Join our event on Facebook &raquo;</a>
-                        <a class="btn btn-lg btn-primary action-button" href="#" role="button" data-toggle="modal" data-target="#magicModal"><span class="glyphicon glyphicon-pencil"></span> Register for the Magic draft &raquo;</a>
+                        <a class="btn btn-md btn-info action-button" href="https://www.facebook.com/events/1637418499868514/" role="button"><span class="glyphicon glyphicon-share"></span> Join our event on Facebook &raquo;</a>
+                        <a class="btn btn-md btn-primary action-button" href="#" role="button" data-toggle="modal" data-target="#magicModal"><span class="glyphicon glyphicon-pencil"></span> Register for the Magic draft &raquo;</a>
                     </p>
                 </div>
             </div>
@@ -113,7 +113,7 @@
                         <li>6 Magic: Origins Booster Packs.</li>
                     </ul>
                     <p>Each player is guaranteed a pack.</p>
-                    <a class="btn btn-lg btn-primary action-button" href="#" role="button" data-toggle="modal" data-target="#magicModal"><span class="glyphicon glyphicon-pencil"></span> Register for the Magic draft &raquo;</a>
+                    <a class="btn btn-md btn-primary action-button" href="#" role="button" data-toggle="modal" data-target="#magicModal"><span class="glyphicon glyphicon-pencil"></span> Register for the Magic draft &raquo;</a>
 
                     <h3>Modern and/or Commander Tournament</h3>
                     <p>Entry is $2. Once 8 players sign up, the tournament will begin. A certified judge will be provided by CSH.</p>
@@ -140,6 +140,8 @@
                     <h3 class="panel-title">Sponsors</h3>
                 </div>
                 <div class="panel-body sponsors">
+					<a href="https://thelink.rit.edu/organization/rwag"><img src="images/sponsors/rwag.png" class="sponsor-image"></a>
+					<hr>
                     <a href="http://wegmans.com/"><img src="images/sponsors/wegmans.png" class="sponsor-image"></a>
                     <hr>
                     <a href="http://rit.edu/"><img src="images/sponsors/rit.png" class="sponsor-image"></a>
@@ -151,7 +153,12 @@
 
 <footer class="footer">
     <div class="container">
-        <img src="images/csh_logo.png" class="logo-footer"> Copyright &copy 2015 Computer Science House.
+		<div class="pull-left">
+			Copyright &copy 2015 Computer Science House.<br>Web by <a href="http://stevenmirabito.com/">Steven Mirabito</a>. Art by <a href="https://www.linkedin.com/in/jacquelinedmcgraw">Jacqueline McGraw</a>.
+		</div>
+		<div class="pull-right">
+			<a href="http://csh.rit.edu/"><img src="images/csh_logo.png" alt="CSH" class="logo-footer"></a>
+		</div>
     </div>
 </footer>
 

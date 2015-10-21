@@ -36,6 +36,20 @@ body {
     height: 16px;
 }
 
+.donate-btn-container {
+	margin-left: 0px;
+}
+
+.donate-btn {
+	color: #8b2c93 !important;
+}
+
+@media only screen and (min-width : 768px) {
+	.donate-btn {
+		margin-top: 8px;
+	}
+}
+
 /*
  Content Styles
  */
@@ -73,13 +87,18 @@ body {
     bottom: 0;
     width: 100%;
     height: 60px;
-    line-height: 60px;
+    padding-top: 15px;
     background-color: #f5f5f5;
-    text-color: #333333;
+	font-size: 12px;
 }
 
 .logo-footer {
     width: 30px;
     height: 30px;
-    margin-right: 10px;
+}
+
+@media only screen and (max-width : 400px) {
+	.logo-footer {
+		display: none;
+	}
 }
